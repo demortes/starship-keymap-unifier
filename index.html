@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Starship Keymap Unifier — Elite / Star Citizen / No Man's Sky</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>🚀 Starship Keymap Unifier</h1>
+    <p class="sub">Memorize <strong>one</strong> joystick layout. Fly <strong>Elite Dangerous</strong>, <strong>Star Citizen</strong> and <strong>No Man's Sky</strong> with it.</p>
+    <p class="how">Load a <code>.binds</code> (Elite), <code>layout_*_exported.xml</code> (Star Citizen) or <code>TKGAMESETTINGS.MXML</code> (No Man's Sky) file → your inputs become the <em>master layout</em> → export the closest possible equivalent for the other two games.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="grid2">
+    <div class="panel" id="drop">
+      <h2>1 · Load your master layout</h2>
+      <p>Drag &amp; drop a bindings file here, or pick one:</p>
+      <p><input type="file" id="file" accept=".binds,.xml,.mxml,.txt" /></p>
+      <p class="muted">Game is auto-detected: <code>&lt;Root&gt;</code> = Elite, <code>&lt;ActionMaps&gt;</code> = Star Citizen, <code>TkGameSettings</code> = NMS.</p>
+      <p>
+        <button data-sample="ed-sample.binds">Try Elite sample</button>
+        <button data-sample="sc-sample.xml">Try SC sample</button>
+        <button data-sample="nms-sample.mxml">Try NMS sample</button>
+        <button id="resetBtn" class="ghost">Reset</button>
+      </p>
+      <details>
+        <summary>…or paste file contents</summary>
+        <textarea id="paste" rows="4" placeholder="Paste XML here…"></textarea><br />
+        <button id="pasteBtn">Parse pasted text</button>
+      </details>
+      <div id="status" class="panel">No file loaded — showing the built-in reference layout. Load one of your own files to unify around it.</div>
+    </div>
+
+    <div class="panel">
+      <h2>2 · Export targets</h2>
+      <label>Elite stick name <span class="muted">(must match your <code>.binds</code> Device, e.g. <code>VKBsim Gladiator</code>)</span>
+        <input id="stick" placeholder="Joystick" spellcheck="false" />
+      </label>
+      <label>Star Citizen joystick index <span class="muted">(js1, js2… — use <code>pp_resortdevices</code> in-game if sticks swap)</span>
+        <input id="jsIndex" type="number" min="1" max="8" value="1" />
+      </label>
+      <p class="btnrow">
+        <button id="expED">⬇ Elite .binds</button>
+        <button id="expSC">⬇ Star Citizen XML</button>
+        <button id="expNMS">⬇ NMS MXML</button>
+      </p>
+      <p class="btnrow">
+        <button id="copyJson" class="ghost">Copy unified JSON</button>
+        <button id="copySheet" class="ghost">Copy cheat-sheet</button>
+      </p>
+      <p id="statBound" class="stat"></p>
+      <p id="statSource" class="stat muted"></p>
+      <p id="nmsnote" class="muted"></p>
+    </div>
+  </section>
+
+  <div id="conflicts" class="panel ok">—</div>
+
+  <section class="panel">
+    <h2>3 · Unified layout <span class="muted">(edit the middle column — previews update live)</span></h2>
+    <p class="muted">Accepted edits: <code>W</code>, <code>Shift+G</code>, <code>Mouse Left</code>, <code>Wheel Up</code>, <code>Joy 1 Btn 3</code>, <code>Stick X</code>, <code>POV1Up</code>, blank = unbound.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Action</th><th>Unified input (edit me)</th><th>Elite</th><th>Star Citizen</th><th>NMS</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>4 · Guide — where files live &amp; what to do with them</h2>
+    <p>General workflow: <strong>find</strong> your current bindings file below → <strong>load</strong> it in step 1 → <strong>export</strong> in step 2 → <strong>install</strong> the export using the same section → <strong>verify</strong> in-game before deleting anything. Always keep a backup of the original file.</p>
+    <div class="grid2">
+      <div class="guide">
+        <h3>Elite Dangerous <span class="muted">(<code>.binds</code>)</span></h3>
+        <p><strong>Find yours:</strong> <code>%LOCALAPPDATA%\Frontier Developments\Elite Dangerous\Options\Bindings\</code> — files like <code>Custom.4.0.binds</code>. The game writes one automatically whenever you change a binding; the in-game Controls dropdown shows the <code>PresetName</code> from inside the file.</p>
+        <p><strong>Install this tool's export:</strong> save <code>Unified.4.0.binds</code> into that same folder, launch Elite, open Controls, and pick “Unified” from the preset dropdown.</p>
+        <p><strong>Gotcha:</strong> the <em>stick name</em> field in step 2 must exactly match your hardware's Device string (open your current <code>.binds</code> and copy the <code>Device="…"</code> value, e.g. <code>VKBsim Gladiator</code>). Wrong name = stick inputs silently dead.</p>
+      </div>
+      <div class="guide">
+        <h3>Star Citizen <span class="muted">(<code>layout_*_exported.xml</code>)</span></h3>
+        <p><strong>Find/export yours:</strong> in-game go Options → Keybindings → Advanced Controls Customization → Control Profiles → Save Control Settings. It lands in <code>&lt;install&gt;\StarCitizen\LIVE\USER\Client\0\Controls\Mappings\</code> as <code>layout_&lt;Name&gt;_exported.xml</code>.</p>
+        <p><strong>Install this tool's export:</strong> copy <code>layout_Unified_exported.xml</code> into that Mappings folder, open the in-game console (<code>~</code> key) and run <code>pp_RebindKeys Unified</code>.</p>
+        <p><strong>Gotchas:</strong> set the <em>joystick index</em> in step 2 to match your stick (js1, js2…). If Windows reorders your sticks, fix it in-game with <code>pp_resortdevices joystick 1 2</code> and list devices with <code>i_DumpDeviceInformation</code>.</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="guide">
+        <h3>No Man's Sky <span class="muted">(<code>TKGAMESETTINGS.MXML</code>)</span></h3>
+        <p><strong>Find yours:</strong> Steam: <code>&lt;steam&gt;\steamapps\common\No Man's Sky\Binaries\SETTINGS\TKGAMESETTINGS.MXML</code> (GOG: same tail under your GOG Games folder). <strong>Back it up first</strong> — a malformed file makes the game regenerate defaults and wipe your remaps. Some pilots set the file read-only after editing so the game doesn't overwrite it.</p>
+        <p><strong>Install this tool's export:</strong> remap at least one key in-game first (so the file has a <code>KeyMapping2</code> block), then replace that block with the exported one.</p>
+        <p><strong>Gotchas:</strong> NMS has no key chords (a <code>Shift+G</code> export keeps only the modifier) and limited stick support — flagged rows must be rebound in-game under Remap Controls.</p>
+      </div>
+      <div class="guide">
+        <h3>Reading the table</h3>
+        <p><strong>“exact”</strong> = same concept in every game. <strong>“approx”</strong> = closest equivalent, hover/tap for why (e.g. Silent Running → G-force safety). Unmapped rows are dimmed — the export leaves them unbound rather than guessing.</p>
+        <p>The crosswalk lives in <code>data.js</code> — if you know a better equivalent for your ship, edit it there and reload.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap muted">Static single-page app — no server, your files never leave the browser. Built for HOTAS/HOSAS pilots who want one muscle memory.</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

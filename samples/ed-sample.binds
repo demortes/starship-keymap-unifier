@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Root PresetName="SampleStick" MajorVersion="4" MinorVersion="0">
+  <KeyboardLayout>en-US</KeyboardLayout>
+  <PitchAxisRaw>
+    <Binding Device="VKBsim Gladiator" Key="Joy_YAxis" />
+    <Inverted Value="0" />
+    <Deadzone Value="0.05000000" />
+  </PitchAxisRaw>
+  <YawAxisRaw>
+    <Binding Device="VKBsim Gladiator" Key="Joy_RZAxis" />
+    <Inverted Value="0" />
+    <Deadzone Value="0.05000000" />
+  </YawAxisRaw>
+  <RollAxisRaw>
+    <Binding Device="VKBsim Gladiator" Key="Joy_XAxis" />
+    <Inverted Value="0" />
+    <Deadzone Value="0.05000000" />
+  </RollAxisRaw>
+  <ForwardThrustButton>
+    <Primary Device="Keyboard" Key="Key_W" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </ForwardThrustButton>
+  <BackwardThrustButton>
+    <Primary Device="Keyboard" Key="Key_S" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </BackwardThrustButton>
+  <LeftThrustButton>
+    <Primary Device="Keyboard" Key="Key_A" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </LeftThrustButton>
+  <RightThrustButton>
+    <Primary Device="Keyboard" Key="Key_D" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </RightThrustButton>
+  <UpThrustButton>
+    <Primary Device="Keyboard" Key="Key_Space" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </UpThrustButton>
+  <DownThrustButton>
+    <Primary Device="Keyboard" Key="Key_LeftControl" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </DownThrustButton>
+  <PrimaryFire>
+    <Primary Device="VKBsim Gladiator" Key="Joy_1" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </PrimaryFire>
+  <SecondaryFire>
+    <Primary Device="VKBsim Gladiator" Key="Joy_2" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </SecondaryFire>
+  <UseBoostJuice>
+    <Primary Device="Keyboard" Key="Key_Tab" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </UseBoostJuice>
+  <ToggleFlightAssist>
+    <Primary Device="Keyboard" Key="Key_Z" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </ToggleFlightAssist>
+  <SelectTarget>
+    <Primary Device="Keyboard" Key="Key_T" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </SelectTarget>
+  <CycleNextTarget>
+    <Primary Device="Keyboard" Key="Key_H" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </CycleNextTarget>
+  <CyclePreviousTarget>
+    <Primary Device="Keyboard" Key="Key_G">
+      <Modifier Device="Keyboard" Key="Key_LeftShift" />
+    </Primary>
+    <Secondary Device="{NoDevice}" Key="" />
+  </CyclePreviousTarget>
+  <CycleNextHostileTarget>
+    <Primary Device="Keyboard" Key="Key_T">
+      <Modifier Device="Keyboard" Key="Key_LeftAlt" />
+    </Primary>
+    <Secondary Device="{NoDevice}" Key="" />
+  </CycleNextHostileTarget>
+  <LandingGearToggle>
+    <Primary Device="Keyboard" Key="Key_L" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </LandingGearToggle>
+  <ToggleCargoScoop>
+    <Primary Device="Keyboard" Key="Key_B" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </ToggleCargoScoop>
+  <Supercruise>
+    <Primary Device="Keyboard" Key="Key_J" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </Supercruise>
+  <Hyperspace>
+    <Primary Device="Keyboard" Key="Key_K" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </Hyperspace>
+  <GalaxyMapOpen>
+    <Primary Device="Keyboard" Key="Key_M" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </GalaxyMapOpen>
+  <SystemMapOpen>
+    <Primary Device="Keyboard" Key="Key_O" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </SystemMapOpen>
+  <SetSpeedZero>
+    <Primary Device="Keyboard" Key="Key_X" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </SetSpeedZero>
+  <DeployHardpoints>
+    <Primary Device="Keyboard" Key="Key_U" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </DeployHardpoints>
+  <DeployCounterMeasure>
+    <Primary Device="Keyboard" Key="Key_G" />
+    <Secondary Device="{NoDevice}" Key="" />
+  </DeployCounterMeasure>
+</Root>

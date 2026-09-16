@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Data template="TkGameSettings">
+  <Property name="LanguageSetting" value="default" />
+  <Property name="KeyMapping" />
+  <Property name="KeyMapping2">
+    <Property name="KeyMapping2_00" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Forward" />
+      <Property name="Button" value="W" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_01" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Reverse" />
+      <Property name="Button" value="S" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_02" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Left" />
+      <Property name="Button" value="A" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_03" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Right" />
+      <Property name="Button" value="D" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_04" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Up" />
+      <Property name="Button" value="Space" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_05" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Down" />
+      <Property name="Button" value="LeftControl" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_06" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Boost" />
+      <Property name="Button" value="Tab" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_07" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Brake" />
+      <Property name="Button" value="X" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_08" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Land" />
+      <Property name="Button" value="L" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_09" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Pulse" />
+      <Property name="Button" value="J" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_10" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_Fire" />
+      <Property name="Button" value="MouseLeft" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_11" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Ship" />
+      <Property name="Action" value="Ship_TargetLock" />
+      <Property name="Button" value="T" />
+      <Property name="Axis" value="None" />
+    </Property>
+    <Property name="KeyMapping2_12" value="GcInputActionMapping2.xml">
+      <Property name="ActionSet" value="Frontend" />
+      <Property name="Action" value="UI_GalaxyMap" />
+      <Property name="Button" value="M" />
+      <Property name="Axis" value="None" />
+    </Property>
+  </Property>
+</Data>
